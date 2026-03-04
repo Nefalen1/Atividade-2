@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class Diagonasecundaria {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[][] matriz = new int[3][3];
+
+        System.out.println("Preencha a matriz 3x3 com valores inteiros:");
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+
+                while (true) {
+                    System.out.print("Digite o valor para [" + i + "][" + j + "]: ");
+
+                    if (sc.hasNextInt()) {
+                        matriz[i][j] = sc.nextInt();
+                        break;
+                    } else {
+                        System.out.println("Entrada inválida! Digite apenas números inteiros.");
+                        sc.next();
+                    }
+                }
+            }
+        }
+
+        System.out.println("\nMatriz digitada:\n");
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.printf("%4d", matriz[i][j]);
+            }
+            System.out.println();
+        }
+
+        // Diagonal Principal
+        System.out.println("\nDiagonal Principal:");
+        for (int i = 0; i < 3; i++) {
+            System.out.println(matriz[i][i]);
+        }
+
+        // Diagonal Secundária
+        System.out.println("\nDiagonal Secundária:");
+        for (int i = 0; i < 3; i++) {
+            System.out.println(matriz[i][2 - i]);
+        }
+
+        sc.close();
+    }
+}
